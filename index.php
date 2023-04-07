@@ -5,7 +5,7 @@ include 'Frontend/config.php'
 <html>
 
 <head>
-  <title>Order Request</title>
+  <title>Highway Congestion</title>
   <!-- Font Awesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
   <!-- Google Fonts -->
@@ -24,8 +24,6 @@ include 'Frontend/config.php'
   </section>
 
   <main>
-
-  
     <div class="container pt-4">
       <!-- Section-->
       <section class="mb-1">
