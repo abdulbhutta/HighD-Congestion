@@ -73,7 +73,7 @@ def run(argv=None, save_main_session=True):
     classData = (filteredData | 'Extract class' >> beam.Map(lambda x: (x['class'], x['drivingDirection']))
     )
 
-    countDirData = (classData | 'Counting Vechicles in both Directions' >> beam.combiners.Count.PerElement()
+    countDirData = (classData | 'Counting Vehicles in both Directions' >> beam.combiners.Count.PerElement()
 
     #set keys 
     | 'Set the key/value pair for each vehicle and directions' >> beam.Map(lambda x: {
@@ -85,7 +85,7 @@ def run(argv=None, save_main_session=True):
     }) | 'Sum up values for Car Direction' >> beam.CombineGlobally(sumDict2)
 
     #Write the result to a text file in the bucket
-    | "Write the Total Car and Truck direction in each lane" >> relational_db.Write(source_config=output_config, table_config=table_config))
+    | "Write the Total Car and Truck direction in each lane to SQL" >> relational_db.Write(source_config=output_config, table_config=table_config))
     #Write the countDirData to a text file in the bucket
     #countDirData | 'Write countdir to text' >> beam.io.WriteToText('gs://sofe4630u-finalproject-bucket/countdir.txt')
 
